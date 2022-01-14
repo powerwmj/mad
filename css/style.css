@@ -356,6 +356,7 @@ header.active .header_w .member ul li a {
 
 .season .slider_w {
   position: relative;
+  width: 100%;
 }
 
 .season .slider_w ul {
@@ -364,6 +365,10 @@ header.active .header_w .member ul li a {
   display: flex;
   -webkit-transform: translateX(-25%);
           transform: translateX(-25%);
+}
+
+.season .slider_w ul li.swiper-slide {
+  z-index: 1;
 }
 
 .season .slider_w ul li.swiper-slide dd.img {
@@ -450,12 +455,14 @@ header.active .header_w .member ul li a {
   left: 270px;
   top: 250px;
   position: absolute;
+  z-index: 1;
 }
 
 .season .slider_w .arrow .next {
   right: 270px;
   top: 250px;
   position: absolute;
+  z-index: 1;
 }
 
 .brand {
@@ -734,6 +741,7 @@ header.active .header_w .member ul li a {
   padding: 0 65px;
   color: #666;
   font-size: 16px;
+  width: auto;
 }
 
 .menu_w .menu .pager .num span {
@@ -762,8 +770,17 @@ header.active .header_w .member ul li a {
   padding: 40px;
 }
 
+.menu_w .menu .slider ul li div.cur {
+  display: none;
+}
+
 .menu_w .menu .slider ul li img {
   width: 100%;
+}
+
+.menu_w .menu .slider ul li:nth-of-type(3n) {
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px);
 }
 
 .menu_w .menu .slider ul li.swiper-slide-active {
@@ -774,6 +791,30 @@ header.active .header_w .member ul li a {
   -webkit-transform: scale(1);
           transform: scale(1);
   padding: 0;
+}
+
+.menu_w .menu .slider ul li.swiper-slide-active div.cur {
+  display: block;
+  position: absolute;
+  text-align: center;
+  line-height: 100px;
+  color: #222;
+  font-size: 16px;
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 20%;
+  margin: -50px 0 0 -50px;
+  background: #fc4b0033;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(24px);
+          backdrop-filter: blur(24px);
+}
+
+.menu_w .menu .slider ul li.swiper-slide-active div.cur span {
+  text-align: center;
+  color: #222;
+  font-weight: 400;
 }
 
 .menu_w .menu .slider ul li p {
@@ -792,6 +833,23 @@ header.active .header_w .member ul li a {
   color: #fff;
   font-size: 26px;
   font-weight: 700;
+}
+
+.menu_w .menu .slider ul li i {
+  display: none;
+}
+
+.menu_w .menu .slider ul li.swiper-slide-active i {
+  width: 16px;
+  height: 22px;
+  display: inline-block;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.menu_w .menu .slider ul li i img {
+  width: 100%;
 }
 
 .banner {

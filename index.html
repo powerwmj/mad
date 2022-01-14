@@ -106,7 +106,7 @@
                     </li>
                 </ul>
                 <div class="arrow">
-                    <div class="prev dim"><a href="#"><img src="img/arrow_ss_prev_dim.png" alt="이전"></a></div>
+                    <div class="prev dim"><a href="#"><img src="img/arrow_ss_prev.png" alt="이전"></a></div>
                     <div class="next"><a href="#"><img src="img/arrow_ss_next.png" alt="다음"></a></div>
                 </div>
             </div>
@@ -190,16 +190,17 @@
                     <div class="slider mn_slider">
                         <ul class="swiper-wrapper">
                             <li class="swiper-slide">
-                                <div><img src="img/steak_01.jpg" alt=""></div>
+                                <div><img src="img/steak_01.jpg" alt=""><div class="cur"><span>MORE</span></div></div>
                                 <p>Brussels sprouts & Tornado<br>
                                     Striploin Steak</p>
+                                <i><img src="img/icon_fire.png" alt=""></i>
                             </li>
-                            <li class="swiper-slide mt-50">
-                                <div><img src="img/steak_02.jpg" alt=""></div>
+                            <li class="swiper-slide">
+                                <div><img src="img/steak_02.jpg" alt=""><div class="cur"><span>MORE</span></div></div>
                                 <p>Garlic Steak</p>
                             </li>
-                            <li class="swiper-slide mt-125">
-                                <div><img src="img/steak_03.jpg" alt=""></div>
+                            <li class="swiper-slide">
+                                <div><img src="img/steak_03.jpg" alt=""><div class="cur"><span>MORE</span></div></div>
                                 <p>Herb Ribeye Steak</p>
                             </li>
                         </ul>
@@ -211,6 +212,9 @@
         <script>
             var swiper = new Swiper(".slider_w", {
                 loop: true,
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: true,
                 navigation: {
                     nextEl: ".arrow .next a",
                     prevEl: ".arrow .prev a",
@@ -226,11 +230,23 @@
                         delay: 2500,
                         disableOnInteraction: false,
                     },
+                pagination: {
+                    el: ".slider_w .pager .num",
+                    type: "fraction",
+                },
                 navigation: {
                     nextEl: ".pager .next a",
-                    prevEl: ".arrow .prev a",
+                    prevEl: ".pager .prev a",
                 },
             });
+
+            // var $box = $('div.cur');
+            // function moveBox (e) { 
+            // TweenMax.to( $box, 1.8, {
+            //     css: { left: e.pageX, top: e.pageY },
+            //     ease: Elastic.easeOut});
+            // }
+            // $(window).on('mousemove', moveBox);
         </script>
 
         <section class="banner">

@@ -117,10 +117,11 @@ header.active {
         }
     }
     .slider_w {
-        position: relative;
+        position: relative; width: 100%;
         ul {
             display: flex; transform: translateX(-25%);
             li.swiper-slide {
+                z-index: 1;
                 dd.img {display: block;}
                 dd.img img {transform: scale(0.75); opacity: .6;}
                 dt {display: none;}
@@ -142,8 +143,9 @@ header.active {
             
         }
         .arrow {
-            .prev {left: 270px; top: 250px; position: absolute;}
-            .next {right: 270px; top: 250px; position: absolute;}
+            
+            .prev {left: 270px; top: 250px; position: absolute; z-index: 1;}
+            .next {right: 270px; top: 250px; position: absolute; z-index: 1;}
         }
     }
 }
@@ -220,7 +222,7 @@ header.active {
         .pager {
             display: flex; padding-top: 80px;
             .num {
-                padding: 0 65px; color: #666; font-size: 16px;
+                padding: 0 65px; color: #666; font-size: 16px; width: auto;
                 span {color: #222; font-weight: 700;}
             }
         }
@@ -229,10 +231,23 @@ header.active {
             ul {
                 display: flex;
                 li {position: relative; /*width: 360px; height: 360px;*/ padding: 40px;}
+                li div.cur {display: none;}
                 li img {width: 100%;}
+                li:nth-of-type(3n) {transform: translateY(70px);}
                 li.swiper-slide-active {width: 534px !important; /*height: 534px;*/ box-shadow: 14px 14px 14px 1px rgba(0, 0, 0, .3); transform: scale(1); padding: 0;}
+                li.swiper-slide-active div.cur {display: block; position: absolute; text-align: center; line-height: 100px; color: #222; font-size: 16px;
+                    width: 100px; height: 100px;
+                    top: 20%; left: 20%;
+                    margin: -50px 0 0 -50px;
+                    background: #fc4b0033;
+                    border-radius: 50%;
+                    backdrop-filter: blur(24px);}
+                li.swiper-slide-active div.cur span {text-align: center; color: #222; font-weight: 400;}
                 li p {position: absolute; left: 80px; bottom: 80px; color: #fff; font-size: 22px; font-weight: 500;}
                 li.swiper-slide-active p {position: absolute; left: 50px; bottom: 50px; color: #fff; font-size: 26px; font-weight: 700;}
+                li i {display: none;}
+                li.swiper-slide-active i {width: 16px; height: 22px; display: inline-block; position: absolute; bottom: 50px; right: 50px;}
+                li i img {width: 100%;}
             }
         }
     }
