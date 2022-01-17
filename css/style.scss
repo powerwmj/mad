@@ -70,7 +70,7 @@ header.active {
         .slide {
             width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-direction: column; position: relative;
             .txt {
-                color: #fff; padding-top: 295px;
+                color: #fff; padding-top: 295px; animation: txt 1s alternate linear; animation-delay: 0.5s; position: absolute; left: 0%;
                 h3 {
                     font-size: 48px; font-weight: 500; position: relative;
                     &::before {content: ''; display: block; position: absolute; width: 23px; height: 18px; left: 0; top: -40px; background: url('../img/tit_before.png');}
@@ -86,9 +86,21 @@ header.active {
                 }
             }
             .img_w {
-                .img_1 {position: absolute; top: 305px; right: -30px;}
-                .img_2 {position: absolute; top: 60px; right: -70px;}
+                .img_1 {position: absolute; top: 305px; right: -30px; animation: img1 1s alternate linear;}
+                .img_2 {position: absolute; top: 60px; right: -70px; animation: img2 1s alternate linear; animation-delay: 1s;}
             }
+        }
+        @keyframes img1 {
+            0% {opacity: 0; right: -100%;}
+            100% {opacity: 1; right: -30px;}
+        }
+        @keyframes img2 {
+            0% {opacity: 0; right: -100%;}
+            100% {opacity: 1; right: -70px;}
+        }
+        @keyframes txt {
+            0% {opacity: 0; left: -100%;}
+            100% {opacity: 1; left: 0;}
         }
         .pager {
             position: absolute; left: 0; bottom: 100px;
@@ -153,7 +165,9 @@ header.active {
 .brand {
     background: url('../img/brand_bg.jpg');
     .logo {
-        width: 1480px; height: 100vh; margin: 0 auto; display: flex; justify-content: center; align-items: center;
+        width: 1480px; height: 300vh; margin: 0 auto; display: flex; justify-content: center; align-items: center; position: relative;
+        p {width: 100%; height: 110px; position:sticky;}
+        p img {height: 100%}
     }
     .chef {
         width: 1480px; margin: 0 auto; display: flex; justify-content: space-between;
@@ -237,11 +251,11 @@ header.active {
                 li.swiper-slide-active {width: 534px !important; /*height: 534px;*/ box-shadow: 14px 14px 14px 1px rgba(0, 0, 0, .3); transform: scale(1); padding: 0;}
                 li.swiper-slide-active div.cur {display: block; position: absolute; text-align: center; line-height: 100px; color: #222; font-size: 16px;
                     width: 100px; height: 100px;
-                    top: 20%; left: 20%;
-                    margin: -50px 0 0 -50px;
-                    background: #fc4b0033;
+                    /*top: 20%; left: 20%;
+                    margin: -50px 0 0 -50px;*/
+                    background: #fc4b0011;
                     border-radius: 50%;
-                    backdrop-filter: blur(24px);}
+                    backdrop-filter: blur(24px); cursor: none;}
                 li.swiper-slide-active div.cur span {text-align: center; color: #222; font-weight: 400;}
                 li p {position: absolute; left: 80px; bottom: 80px; color: #fff; font-size: 22px; font-weight: 500;}
                 li.swiper-slide-active p {position: absolute; left: 50px; bottom: 50px; color: #fff; font-size: 26px; font-weight: 700;}
@@ -249,6 +263,14 @@ header.active {
                 li.swiper-slide-active i {width: 16px; height: 22px; display: inline-block; position: absolute; bottom: 50px; right: 50px;}
                 li i img {width: 100%;}
             }
+            div.cur {display: block; position: absolute; text-align: center; line-height: 100px; color: #222; font-size: 16px;
+                width: 100px; height: 100px;
+                /*top: 20%; left: 20%;*/
+                margin: -50px 0 0 -50px;
+                background: #fc4b0011;
+                pointer-events: none; // 커서가 느리게 움직이는 부분 방지
+                border-radius: 50%;
+                backdrop-filter: blur(24px); cursor: none;}
         }
     }
 
